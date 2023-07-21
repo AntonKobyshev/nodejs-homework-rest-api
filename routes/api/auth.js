@@ -1,6 +1,6 @@
 const express = require("express");
 
-const ctrl = require("../../controllers/auth");
+const { auth: ctrl } = require("../../controllers");
 
 const { validateBody, authenticate, upload } = require("../../middlewares");
 
@@ -10,11 +10,11 @@ const router = express.Router();
 
 router.post("/register", validateBody(schemas.registerSchema), ctrl.register);
 
-router.post("/login", validateBody(schemas.loginSchema), ctrl.login);
+router.post("/login", validateBody(schemas.loginSchema), ctrl.logIn);
 
 router.get("/current", authenticate, ctrl.getCurrent);
 
-router.post("/logout", authenticate, ctrl.logout);
+router.post("/logout", authenticate, ctrl.logOut);
 
 router.patch("/users", authenticate, validateBody(schemas.updatesubscriptionSchema), ctrl.updateSubscription);
 
