@@ -3,5 +3,4 @@
 // 3. If given not valid argument throw error with message.
 
 
-const logIn = require("./logIn")
 
